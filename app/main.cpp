@@ -3,16 +3,16 @@
 
 int main()
 {
-	Vector3D a, b, c, d;
-
-	a = Vector3D();
-	b = Vector3D(1, 0, 1);
-	c = Vector3D(b);
-
+	Vector3D<float> a, b, c, d;
+	
+	a = Vector3D<float>();
+	b = Vector3D<float>(1, 0, 1);
+	c = Vector3D<float>(b);
+	
 	d = a + c;
 
-	d.Normalize();
-
+	b.Normalize();
+	
 	cout << "----------------\n";
 
 	std::cout << "Distance to: ";
