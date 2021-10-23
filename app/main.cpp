@@ -16,4 +16,10 @@ int main()
 	d.Normalize();
 
 	d.distance_to(b);
+
+	d.dot_product(b);
+
+	d.cross_product(b);
+
+	d.angle_between(b);
 }

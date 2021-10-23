@@ -29,17 +29,16 @@ public:
 	Vector3D& operator=(const Vector3D& vec);
 
 	void printCoordinates() const;
+
 	void Normalize();
 	void distance_to(const Vector3D& vec);
-
-	/*
-	void dot_product(const Vector3D& vec);
+	float dot_product(const Vector3D& vec);
 	void cross_product(const Vector3D& vec);
-	void angle_between(const Vector3D& vec);
-	*/
+	float angle_between(const Vector3D& vec);
+
 private:
 	float x, y, z;
 
-	float magnitude();
-	float square();
+	float magnitude() const;
+	float square() const;
 };
