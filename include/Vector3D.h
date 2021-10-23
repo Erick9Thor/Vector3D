@@ -20,18 +20,23 @@ public:
 	};
 
 	Vector3D(const Vector3D& vec);
-	~Vector3D();
+
 
 	Vector3D operator+(const Vector3D& vec);
+	Vector3D operator-(const Vector3D& vec);
+	Vector3D operator/(float value);
+	Vector3D& operator/=(float value);
 	Vector3D& operator=(const Vector3D& vec);
 
-
+	void printCoordinates() const;
 	void Normalize();
 	void distance_to(const Vector3D& vec);
+
+	/*
 	void dot_product(const Vector3D& vec);
 	void cross_product(const Vector3D& vec);
 	void angle_between(const Vector3D& vec);
-
+	*/
 private:
 	float x, y, z;
 
