@@ -31,10 +31,10 @@ public:
 	void printCoordinates() const;
 
 	void Normalize();
-	void distance_to(const Vector3D& vec);
-	float dot_product(const Vector3D& vec);
-	void cross_product(const Vector3D& vec);
-	float angle_between(const Vector3D& vec);
+	float distanceTo(const Vector3D& vec);
+	float dotProduct(const Vector3D& vec);
+	Vector3D crossProduct(const Vector3D& vec);
+	double angleBetween(const Vector3D& vec);
 
 private:
 	float x, y, z;

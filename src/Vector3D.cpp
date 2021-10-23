@@ -56,56 +56,31 @@ void Vector3D::printCoordinates() const
         << "; y: " << y << "; z: " << z << std::endl;
 }
 
-void Vector3D::distance_to(const Vector3D& vec)
+float Vector3D::distanceTo(const Vector3D& vec)
 {
-    std::cout << "Distance to: ";
-    this->printCoordinates();
-    std::cout << "and: ";
-    vec.printCoordinates();
-    std::cout << "is: " << (*this - vec).magnitude() << std::endl;
+    return (*this - vec).magnitude();
 }
 
-float Vector3D::dot_product(const Vector3D& vec)
+float Vector3D::dotProduct(const Vector3D& vec)
 {
-    std::cout << "Dot product between: ";
-    this->printCoordinates();
-    std::cout << "and: ";
-    vec.printCoordinates();
-    std::cout << "is: ";
-
-    std::cout << (x * vec.x + vec.y * y + vec.z * z) << std::endl;
-
     return (x * vec.x + vec.y * y + vec.z * z);
 }
 
-void Vector3D::cross_product(const Vector3D& vec)
+Vector3D Vector3D::crossProduct(const Vector3D& vec)
 {
-    
-    std::cout << "Cross product between: ";
-    this->printCoordinates();
-    std::cout << "and: ";
-    vec.printCoordinates();
-    std::cout << "is: ";
-
     float cpx = x * vec.y - y * vec.x;
     float cpy = y * vec.z - z * vec.y;
     float cpz = z * vec.x - x * vec.z;
-    Vector3D(cpy, cpz, cpx).printCoordinates();
+    return Vector3D(cpy, cpz, cpx);
 }
 
-float Vector3D::angle_between(const Vector3D& vec)
+double Vector3D::angleBetween(const Vector3D& vec)
 {
-    float angle;
-
-    std::cout << "Angle between: ";
-    this->printCoordinates();
-    std::cout << "and: ";
-    vec.printCoordinates();
-
-    angle = acos(dot_product(vec) / (this->magnitude() * vec.magnitude()));
-
-    std::cout << angle << std::endl;
-
+    float dotProduct = this->dotProduct(vec);
+    float dotMagnitudes = this->magnitude() * vec.magnitude();
+    double res = dotProduct / dotMagnitudes;
+    res = (res < -1.0 ? -1.0 : (res > 1.0 ? 1.0 : res));
+    double angle = acos(res);
     return angle;
 }
 
