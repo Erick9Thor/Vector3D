@@ -8,16 +8,12 @@ template <class T>
 class Vector3D
 {
 public:
-	Vector3D() {
-		x = 0;
-		y = 0;
-		z = 0;
-	};
+	Vector3D(): x(T(0)), y(T(0)), z(T(0)) {}
 
 	Vector3D(T x_pass, T y_pass, T z_pass) {
-		x = x_pass;
-		y = y_pass;
-		z = z_pass;
+		x = T(x_pass);
+		y = T(y_pass);
+		z = T(z_pass);
 	};
 
 	Vector3D(const Vector3D& vec);
